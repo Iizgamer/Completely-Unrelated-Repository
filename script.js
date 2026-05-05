@@ -7,6 +7,8 @@ const craft = document.getElementById('craft');
 const search = document.getElementById('search');
 const inventory = document.getElementById('inventory');
 const inventoryWindow = document.getElementById('inventoryWindow');
+const closeInvBtn = document.getElementById('closeInvBtn');
+const invDisplay = document.getElementById('invDisplay');
 let searchLvl = 1;
 let craftLvl = 1;
 let btnCount = 0;
@@ -47,5 +49,10 @@ search.addEventListener('click', () => {
 
 inventory.addEventListener('click', ()=>{
     inventoryWindow.style.display = "block";
-    inventoryWindow.style.backgroundColor = 'black';
+    invDisplay.textContent = invList;
 })
+
+closeInvBtn.addEventListener('click', ()=>{
+    inventoryWindow.style.display = 'none';
+})
+

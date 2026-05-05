@@ -76,5 +76,15 @@ h1, p, button {
 #inventoryWindow {
     display: none;
     position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
+    top: 10%; left: 10%; right: 10%; bottom: 10%;
+    background-color: #815438;
+}
+
+#closeInvBtn {
+    background-color: red;
+}
+
+#invDisplay {
+    text-align: center;
+    margin: auto;
 }
