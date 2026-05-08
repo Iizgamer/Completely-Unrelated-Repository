@@ -15,7 +15,9 @@ const closeCraftBtn = document.getElementById('closeCraftBtn');
 const pointer = document.getElementsByClassName('pointer');
 const knife = document.getElementById('knife');
 const campfire = document.getElementById('campfire');
+const raft = document.getElementById('raft');
 const confirmCraft = document.getElementById('confirmCraft');
+let raftObtained = false;
 let craftSelect;
 let searchLvl = 1;
 let craftLvl = 1;
@@ -69,6 +71,8 @@ craft.addEventListener('click', ()=>{
     if (craftLvl >= 1) {
         knife.classList.remove('hideCraft');
         campfire.classList.remove('hideCraft');
+    } else if (craftLvl >= 2) {
+        raft.classList.remove('hideCraft');
     }
 })
 
@@ -87,6 +91,10 @@ knife.addEventListener('click', () => {
 
 campfire.addEventListener('click', () => {
     craftSelect = 'campfire';
+})
+
+raft.addEventListener('click', () => {
+    craftSelect = 'raft';
 })
 
 confirmCraft.addEventListener('click', () => {
@@ -122,6 +130,35 @@ confirmCraft.addEventListener('click', () => {
             }
             campfire.style.display = 'none';
             invList.push('campfire');
+            craftLvl++;
+        } else {
+            window.alert('You do not have enough materials!')
+        }
+    } else if (craftSelect == 'raft') {
+        var index = tempInvList.indexOf('wood')
+        if (index !== -1) {
+            tempInvList.splice(index, 1);
+        }
+        if (tempInvList.includes('wood')) {
+            var index = tempInvList.indexOf('wood');
+            if (index !== -1) {
+                invList.splice(index, 1);
+            }
+            if (tempInvList.includes('wood')) {
+                var index = invList.indexOf('wood')
+                if (index !== -1) {
+                    invList.splice(index, 1);
+                }
+                var index = invList.indexOf('wood')
+                if (index !== -1) {
+                    invList.splice(index, 1);
+                }
+                var index = invList.indexOf('wood')
+                if (index !== -1) {
+                    invList.splice(index, 1);
+                }
+                let raftObtained = true;
+            }
         } else {
             window.alert('You do not have enough materials!')
         }
